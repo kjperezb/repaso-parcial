@@ -6,7 +6,8 @@ double sumf(double X, double N);
 double term(double Xt, double Nt);
 double fact(double N1);
 
-const double n=10;
+const double n=103;
+const double eps=std::pow(10,-8);
 
 int main(){
 
@@ -27,6 +28,8 @@ std::cout.setf(std::ios::scientific);
     err=std::abs(sinxf-std::sin(x))/(std::sin(x));
     erf=std::abs(sinxr-std::sin(x))/(std::sin(x));
     std::cout<<i<<" "<<sinxf<<" "<<sinxr<<" "<<err<<" "<<erf<<std::endl;
+
+    if((err<eps)||(erf<eps)) break;
    }
 
 return 0;
